@@ -1,5 +1,5 @@
 from typing import List, Optional, Any
-
+print("Hello World")
 class Node:
     def __init__(self, value):
         self.value = value
