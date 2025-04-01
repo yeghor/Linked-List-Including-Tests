@@ -309,7 +309,6 @@ class LinkedList:
     def merge(self, list) -> None:
         if not isinstance(list, LinkedList):
             raise TypeError("Argument must be a LinkedList object")
-        
         self.extend(list.to_list())
 
     def delete_all_occurances_by_value(self, value) -> None:
