@@ -103,5 +103,5 @@ print(ll)
 
 ## **To run the tests, execute from the folowing command**
 ```
-python -m unittest discover tests
+python -m linked_list_unittest
 ```
