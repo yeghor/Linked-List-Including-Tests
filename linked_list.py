@@ -10,7 +10,7 @@ class Node:
 class LinkedList:
 
     @staticmethod
-    def __clear_node(node: Node) -> None:
+    def clear_node(node: Node) -> None:
         node.prev = None
         node.next = None
         node.value = None
@@ -291,15 +291,23 @@ class LinkedList:
             self.__head_node.value, self.__tail_node.value = self.__tail_node.value, self.__head_node.value
             return
 
-        current_h = self.__head_node
-        current_t = self.__tail_node
+        # current_h = self.__head_node
+        # current_t = self.__tail_node
 
-        while current_t != current_h and current_h.prev != current_t:
-            current_h.value, current_t.value = current_t.value, current_h.value
+        # while current_t != current_h and current_h.prev != current_t:
+        #     current_h.next, current_t.value = current_t.value, current_h.value
 
-            current_h = current_h.next
-            current_t = current_t.prev
-                
+        #     current_h = current_h.next
+        #     current_t = current_t.prev
+
+        current = self.__head_node  
+        self.__head_node, self.__tail_node = self.__tail_node, self.__head_node
+        
+
+        while current:
+            current.prev, current.next = current.next, current.prev
+            current = current.prev
+            
     def copy(self) -> "LinkedList":
         new_list = LinkedList()
 
@@ -315,3 +323,12 @@ class LinkedList:
     def delete_all_occurances_by_value(self, value) -> None:
         while self.contains(value=value):
             self.delete_by_first_appeared_value(value)
+
+
+ll = LinkedList()
+for i in range(1, 11):
+    ll.add(i)
+
+print(ll)
+ll.reverse_in_place()
+print(ll)
